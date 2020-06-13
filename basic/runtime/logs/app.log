@@ -1,0 +1,286 @@
+2020-06-05 09:53:30 [127.0.0.1][-][-][error][yii\db\Exception] PDOException: PDO::__construct(): MySQL server has gone away in /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php:705
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(705): PDO->__construct('mysql:host=loca...', 'Lisodevka', 'Q1qqqqqq', NULL)
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(626): yii\db\Connection->createPdoInstance()
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1022): yii\db\Connection->open()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1009): yii\db\Connection->getMasterPdo()
+#4 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(255): yii\db\Connection->getSlavePdo()
+#5 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(1154): yii\db\Command->prepare(true)
+#6 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(444): yii\db\Command->queryInternal('fetchAll', 7)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/db/mysql/Schema.php(114): yii\db\Command->queryColumn()
+#8 /var/www/html/basic/vendor/yiisoft/yii2/db/Schema.php(236): yii\db\mysql\Schema->findTableNames('')
+#9 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/Generator.php(172): yii\db\Schema->getTableNames()
+#10 [internal function]: yii\gii\generators\model\Generator->yii\gii\generators\model\{closure}()
+#11 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/components/ActiveField.php(46): call_user_func(Object(Closure))
+#12 /var/www/html/basic/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\gii\components\ActiveField->init()
+#13 [internal function]: yii\base\BaseObject->__construct(Array)
+#14 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#15 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\gii\\compone...', Array, Array)
+#16 /var/www/html/basic/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\gii\\compone...', Array, Array)
+#17 /var/www/html/basic/vendor/yiisoft/yii2/widgets/ActiveForm.php(334): yii\BaseYii::createObject(Array)
+#18 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/form.php(9): yii\widgets\ActiveForm->field(Object(yii\gii\generators\model\Generator), 'tableName')
+#19 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#20 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#21 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/views/default/view.php(43): yii\base\View->renderFile('/var/www/html/b...', Array)
+#22 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#23 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#24 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/b...', Array, Object(yii\gii\controllers\DefaultController))
+#25 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(386): yii\base\View->render('view', Array, Object(yii\gii\controllers\DefaultController))
+#26 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(72): yii\base\Controller->render('view', Array)
+#27 [internal function]: yii\gii\controllers\DefaultController->actionView('model')
+#28 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#29 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#30 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#31 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#32 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#33 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#34 {main}
+
+Next PDOException: SQLSTATE[HY000] [2006] MySQL server has gone away in /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php:705
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(705): PDO->__construct('mysql:host=loca...', 'Lisodevka', 'Q1qqqqqq', NULL)
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(626): yii\db\Connection->createPdoInstance()
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1022): yii\db\Connection->open()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1009): yii\db\Connection->getMasterPdo()
+#4 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(255): yii\db\Connection->getSlavePdo()
+#5 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(1154): yii\db\Command->prepare(true)
+#6 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(444): yii\db\Command->queryInternal('fetchAll', 7)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/db/mysql/Schema.php(114): yii\db\Command->queryColumn()
+#8 /var/www/html/basic/vendor/yiisoft/yii2/db/Schema.php(236): yii\db\mysql\Schema->findTableNames('')
+#9 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/Generator.php(172): yii\db\Schema->getTableNames()
+#10 [internal function]: yii\gii\generators\model\Generator->yii\gii\generators\model\{closure}()
+#11 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/components/ActiveField.php(46): call_user_func(Object(Closure))
+#12 /var/www/html/basic/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\gii\components\ActiveField->init()
+#13 [internal function]: yii\base\BaseObject->__construct(Array)
+#14 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#15 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\gii\\compone...', Array, Array)
+#16 /var/www/html/basic/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\gii\\compone...', Array, Array)
+#17 /var/www/html/basic/vendor/yiisoft/yii2/widgets/ActiveForm.php(334): yii\BaseYii::createObject(Array)
+#18 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/form.php(9): yii\widgets\ActiveForm->field(Object(yii\gii\generators\model\Generator), 'tableName')
+#19 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#20 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#21 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/views/default/view.php(43): yii\base\View->renderFile('/var/www/html/b...', Array)
+#22 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#23 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#24 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/b...', Array, Object(yii\gii\controllers\DefaultController))
+#25 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(386): yii\base\View->render('view', Array, Object(yii\gii\controllers\DefaultController))
+#26 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(72): yii\base\Controller->render('view', Array)
+#27 [internal function]: yii\gii\controllers\DefaultController->actionView('model')
+#28 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#29 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#30 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#31 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#32 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#33 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#34 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away in /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php:637
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1022): yii\db\Connection->open()
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1009): yii\db\Connection->getMasterPdo()
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(255): yii\db\Connection->getSlavePdo()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(1154): yii\db\Command->prepare(true)
+#4 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(444): yii\db\Command->queryInternal('fetchAll', 7)
+#5 /var/www/html/basic/vendor/yiisoft/yii2/db/mysql/Schema.php(114): yii\db\Command->queryColumn()
+#6 /var/www/html/basic/vendor/yiisoft/yii2/db/Schema.php(236): yii\db\mysql\Schema->findTableNames('')
+#7 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/Generator.php(172): yii\db\Schema->getTableNames()
+#8 [internal function]: yii\gii\generators\model\Generator->yii\gii\generators\model\{closure}()
+#9 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/components/ActiveField.php(46): call_user_func(Object(Closure))
+#10 /var/www/html/basic/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\gii\components\ActiveField->init()
+#11 [internal function]: yii\base\BaseObject->__construct(Array)
+#12 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#13 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\gii\\compone...', Array, Array)
+#14 /var/www/html/basic/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\gii\\compone...', Array, Array)
+#15 /var/www/html/basic/vendor/yiisoft/yii2/widgets/ActiveForm.php(334): yii\BaseYii::createObject(Array)
+#16 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/form.php(9): yii\widgets\ActiveForm->field(Object(yii\gii\generators\model\Generator), 'tableName')
+#17 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#18 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#19 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/views/default/view.php(43): yii\base\View->renderFile('/var/www/html/b...', Array)
+#20 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#21 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#22 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/b...', Array, Object(yii\gii\controllers\DefaultController))
+#23 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(386): yii\base\View->render('view', Array, Object(yii\gii\controllers\DefaultController))
+#24 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(72): yii\base\Controller->render('view', Array)
+#25 [internal function]: yii\gii\controllers\DefaultController->actionView('model')
+#26 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#27 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#28 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#29 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#30 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#31 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#32 {main}
+Additional Information:
+
+2020-06-05 09:53:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'gii/default/view'
+    'id' => 'model'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__test' => '1'
+    '_csrf' => '38d9b43e8f4dd20663236f626b2537a22122d21affc1b968884eac7d127abeaca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Y7W45mFNNummW-b42IMTecVt2G2EFsYj\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_REFERER' => 'http://localhost/basic/web/index.php?r=gii%2Fdefault%2Fview&id=crud'
+    'HTTP_COOKIE' => '__test=1; _csrf=38d9b43e8f4dd20663236f626b2537a22122d21affc1b968884eac7d127abeaca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Y7W45mFNNummW-b42IMTecVt2G2EFsYj%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '42450'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=gii%2Fdefault%2Fview&id=model'
+    'REQUEST_URI' => '/basic/web/index.php?r=gii%2Fdefault%2Fview&id=model'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1591350809.76
+    'REQUEST_TIME' => 1591350809
+]
+2020-06-05 09:53:36 [127.0.0.1][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [2002] No such file or directory in /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php:705
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(705): PDO->__construct('mysql:host=loca...', 'Lisodevka', 'Q1qqqqqq', NULL)
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(626): yii\db\Connection->createPdoInstance()
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1022): yii\db\Connection->open()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1009): yii\db\Connection->getMasterPdo()
+#4 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(255): yii\db\Connection->getSlavePdo()
+#5 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(1154): yii\db\Command->prepare(true)
+#6 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(444): yii\db\Command->queryInternal('fetchAll', 7)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/db/mysql/Schema.php(114): yii\db\Command->queryColumn()
+#8 /var/www/html/basic/vendor/yiisoft/yii2/db/Schema.php(236): yii\db\mysql\Schema->findTableNames('')
+#9 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/Generator.php(172): yii\db\Schema->getTableNames()
+#10 [internal function]: yii\gii\generators\model\Generator->yii\gii\generators\model\{closure}()
+#11 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/components/ActiveField.php(46): call_user_func(Object(Closure))
+#12 /var/www/html/basic/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\gii\components\ActiveField->init()
+#13 [internal function]: yii\base\BaseObject->__construct(Array)
+#14 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#15 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\gii\\compone...', Array, Array)
+#16 /var/www/html/basic/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\gii\\compone...', Array, Array)
+#17 /var/www/html/basic/vendor/yiisoft/yii2/widgets/ActiveForm.php(334): yii\BaseYii::createObject(Array)
+#18 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/form.php(9): yii\widgets\ActiveForm->field(Object(yii\gii\generators\model\Generator), 'tableName')
+#19 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#20 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#21 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/views/default/view.php(43): yii\base\View->renderFile('/var/www/html/b...', Array)
+#22 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#23 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#24 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/b...', Array, Object(yii\gii\controllers\DefaultController))
+#25 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(386): yii\base\View->render('view', Array, Object(yii\gii\controllers\DefaultController))
+#26 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(72): yii\base\Controller->render('view', Array)
+#27 [internal function]: yii\gii\controllers\DefaultController->actionView('model')
+#28 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#29 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#30 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#31 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#32 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#33 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#34 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [2002] No such file or directory in /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php:637
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1022): yii\db\Connection->open()
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(1009): yii\db\Connection->getMasterPdo()
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(255): yii\db\Connection->getSlavePdo()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(1154): yii\db\Command->prepare(true)
+#4 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(444): yii\db\Command->queryInternal('fetchAll', 7)
+#5 /var/www/html/basic/vendor/yiisoft/yii2/db/mysql/Schema.php(114): yii\db\Command->queryColumn()
+#6 /var/www/html/basic/vendor/yiisoft/yii2/db/Schema.php(236): yii\db\mysql\Schema->findTableNames('')
+#7 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/Generator.php(172): yii\db\Schema->getTableNames()
+#8 [internal function]: yii\gii\generators\model\Generator->yii\gii\generators\model\{closure}()
+#9 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/components/ActiveField.php(46): call_user_func(Object(Closure))
+#10 /var/www/html/basic/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\gii\components\ActiveField->init()
+#11 [internal function]: yii\base\BaseObject->__construct(Array)
+#12 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(400): ReflectionClass->newInstanceArgs(Array)
+#13 /var/www/html/basic/vendor/yiisoft/yii2/di/Container.php(159): yii\di\Container->build('yii\\gii\\compone...', Array, Array)
+#14 /var/www/html/basic/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\gii\\compone...', Array, Array)
+#15 /var/www/html/basic/vendor/yiisoft/yii2/widgets/ActiveForm.php(334): yii\BaseYii::createObject(Array)
+#16 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/generators/model/form.php(9): yii\widgets\ActiveForm->field(Object(yii\gii\generators\model\Generator), 'tableName')
+#17 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#18 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#19 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/views/default/view.php(43): yii\base\View->renderFile('/var/www/html/b...', Array)
+#20 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(348): require('/var/www/html/b...')
+#21 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/var/www/html/b...', '[<span class="s...')
+#22 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/b...', Array, Object(yii\gii\controllers\DefaultController))
+#23 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(386): yii\base\View->render('view', Array, Object(yii\gii\controllers\DefaultController))
+#24 /var/www/html/basic/vendor/yiisoft/yii2-gii/src/controllers/DefaultController.php(72): yii\base\Controller->render('view', Array)
+#25 [internal function]: yii\gii\controllers\DefaultController->actionView('model')
+#26 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#27 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#28 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('view', Array)
+#29 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('gii/default/vie...', Array)
+#30 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#31 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#32 {main}
+Additional Information:
+
+2020-06-05 09:53:36 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'gii/default/view'
+    'id' => 'model'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__test' => '1'
+    '_csrf' => '38d9b43e8f4dd20663236f626b2537a22122d21affc1b968884eac7d127abeaca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Y7W45mFNNummW-b42IMTecVt2G2EFsYj\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_REFERER' => 'http://localhost/basic/web/index.php?r=gii%2Fdefault%2Fview&id=crud'
+    'HTTP_COOKIE' => '__test=1; _csrf=38d9b43e8f4dd20663236f626b2537a22122d21affc1b968884eac7d127abeaca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Y7W45mFNNummW-b42IMTecVt2G2EFsYj%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '42458'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=gii%2Fdefault%2Fview&id=model'
+    'REQUEST_URI' => '/basic/web/index.php?r=gii%2Fdefault%2Fview&id=model'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1591350816.671
+    'REQUEST_TIME' => 1591350816
+]
