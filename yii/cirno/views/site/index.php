@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\helpers\Url;
 
 $this->title = 'Магазин телевизоров Зомбо-ящик';
 ?>
@@ -8,13 +9,55 @@ $this->title = 'Магазин телевизоров Зомбо-ящик';
       <div class="container">
         <div class="row">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle="tab">Хиты</a></li>
-            <li><a href="#tab2" data-toggle="tab">Новинки</a></li>
-            <li><a href="#tab3" data-toggle="tab">Акции</a></li>
+            <li class="active"><a href="#tab1" data-toggle="tab">Электроника</a></li>
           </ul>
         </div>
       </div>
-      <div class="container">
+
+          <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 left_banner_menu">
+    			
+            </div>
+
+    			
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 catalog">
+              
+          <div class="row content">
+<?php
+
+//echo "<pre>";
+//print_r($products_array);
+//echo "</pre>";
+
+
+
+foreach ($products_array as $product_array):?>
+		<div class="col-lg-4 col-md-6 col-sm-4 col-xs-12">
+                <div class="product">
+                  <a href="<?=Url::toRoute(['page/kart', 'id' => $product_array['id']]);?>" class="product_img">
+                  <img src="images/<?= $product_array['img'];?>">
+                  </a>
+                  <a href="<?=Url::toRoute(['page/kart', 'id' => $product_array['id']]);?>" class="product_title"><?= $product_array['name'];?></a>
+                  <div class="product_price">
+                    <span class="price"><?= $product_array['price'];?> руб</span>
+        <?php
+            if(!empty($product_array['price_old'])): 
+        ?>
+            <span class="price_old_prod"><?php echo $product_array['price_old'];?> руб</span>
+        <?php
+            endif;
+        ?>
+                  </div>
+                 <!-- <div class="product_btn">
+                    <a href="#" class="cart"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+                    <a href="#" class="mylist">Список желаний</a>
+                  </div> -->
+                </div>
+              </div>
+<?php endforeach;?>
+             </div>
+            </div>
+
+    <!--  <div class="container">
         <div class="row">
           <div class="tab-content">
             <div class="tab-pane fade in active" id="tab1">
@@ -161,5 +204,5 @@ $this->title = 'Магазин телевизоров Зомбо-ящик';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>

@@ -36,25 +36,7 @@ AppAsset::register($this);
           <div class="btn_top_wrap col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <div class="btn_and_search">
               <div class="btn_top">
-                <a href="#"><i class="glyphicon glyphicon-map-marker"></i>Обратная связь</a>
-                <a href="#"><i class="glyphicon glyphicon-user"></i>Личный кабинет</a>
-                <a href="#"><i class="glyphicon glyphicon-shopping-cart"></i>Корзина</a>
-                <a href="<?=Url::toRoute('page/login');?>"><i class="glyphicon glyphicon-lock"></i>Войти</a>
-              </div>
-              <div class="search_top">
-              	<form>
-	                <input placeholder="Поиск" type="text">
-	                <button type="submit" name="submit_search">
-	                  <i class="glyphicon glyphicon-search"></i>
-	                </button>
-                </form>
-              </div>
-            </div>
-            <div class="cart_top">
-              <a href="#">
-                <i class="glyphicon glyphicon-shopping-cart"></i>
-                <span>0</span>
-              </a>
+              </div>             
             </div>
           </div>
         </div>
@@ -70,17 +52,29 @@ NavBar::begin([
             'class' => ' ',
         ],
     ]);
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'Каталог', 'url' => ['/page/catalog']],
-            ['label' => 'Новости', 'url' => ['/page/news']],
             ['label' => 'Контакты', 'url' => ['/page/contacts']],
         ],
     ]);
+
     NavBar::end();
-    ?>
+
+    ?>            
+                            
+    	    			<div class="footer_menu">
+	<?php if(!Yii::$app->user->isGuest): ?>
+               <ul> <a href="<?= yii\helpers\Url::to(['/site/logout'])?>"><?=Yii::$app->user->identity['username']?>(Выход)</a></ul>
+                <?php else: ?>
+               <ul> <a href="<?= yii\helpers\Url::to(['/site/login'])?>"></i>Вход</a>
+                <a href="<?= yii\helpers\Url::to(['/site/signup'])?>"></i>Регистрация</a></ul>
+                <?php endif; ?>
+	
+	    			</div>
 
 
                   <!-- 
@@ -110,10 +104,10 @@ NavBar::begin([
 
     <div class="container ban_block_wrap">
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ban_block ban1">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ban_block">
           <div>
             <img src="images/ban1.jpg">
-            <a href="#">
+            <a href="<?= yii\helpers\Url::to(['/page/listproduct', 'id' => 1])?>">
               <h2>Телевизоры для дома</h2>
               <p>Широкий выбор телевизоров LG</p>
               <span>Подробнее</span>
@@ -123,7 +117,7 @@ NavBar::begin([
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ban_block">
           <div>
             <img src="images/ban2.jpg">
-            <a href="#">
+            <a href="<?= yii\helpers\Url::to(['/page/listproduct', 'id' => 2])?>">
               <h2>Комплектующие для ПК</h2>
               <p>Качественные процессоры</p>
               <span>Подробнее</span>
@@ -139,13 +133,7 @@ NavBar::begin([
     	<div class="container">
     		<div class="row write_email_and_sseti_wrap">
     			<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 write_email">
-    				<p>Рассылка</p>
-    				<form>
-    					<button type="submit">
-		                  <i class="glyphicon glyphicon-chevron-right"></i>
-		                </button>
-    					<input type="text" placeholder="Введите E-mail">
-    				</form>
+    				
     			</div>
     			<div class="col-lg-6 col-md-6 col-sm-5 hidden-xs sseti_wrap">
     				<div>
@@ -164,36 +152,22 @@ NavBar::begin([
 	    			<div class="footer_menu">
 		    			<h3>Категории</h3>
 		    			<ul>
-		    				<li><a href="#">Телевизоры</a></li>
-		    				<li><a href="#">Комплектующие</a></li>
-		    				<li><a href="#">Лаптопы</a></li>
-		    				<li><a href="#">Компьютеры</a></li>
-		    				<li><a href="#">Электроника</a></li>
-		    			</ul>
-	    			</div>
-	    			<div class="footer_menu">
-		    			<h3>Информация</h3>
-		    			<ul>
-		    				<li><a href="#">Доставка</a></li>
-		    				<li><a href="#">Оплата</a></li>
-		    				<li><a href="#">О компании</a></li>
-		    				<li><a href="#">Скидки</a></li>
-		    				<li><a href="#">Карта сайта</a></li>
+		    				<li><a href="<?= yii\helpers\Url::to(['/page/listproduct', 'id' => 1])?>">Телевизоры</a></li>
+		    				<li><a href="<?= yii\helpers\Url::to(['/page/listproduct', 'id' => 2])?>">Комплектующие</a></li>
 		    			</ul>
 	    			</div>
 	    			<div class="footer_menu">
 		    			<h3>Учетная запись</h3>
 		    			<ul>
-		    				<li><a href="#">Войти</a></li>
-		    				<li><a href="#">Зарегистрироваться</a></li>
-		    				<li><a href="#">Мои заказы</a></li>
-		    				<li><a href="#">Список желаний</a></li>
+		    				<li><a href="<?= yii\helpers\Url::to(['/site/login'])?>">Войти</a></li>
+		    				<li><a href="<?= yii\helpers\Url::to(['/site/signup'])?>">Зарегистрироваться</a></li>
+	<li><a href="<?= yii\helpers\Url::to(['/admin/products'])?>">Админка</a></li>
 		    			</ul>
 	    			</div>
 	    		</div>
 	    		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 contacts">
 	    			<h3>Контакты</h3>
-	    			<p><i class="glyphicon glyphicon-map-marker"></i>Адрес: ул. Ленина, 9 г. Москва, 603089</p>
+	    			<p><i class="glyphicon glyphicon-map-marker"></i>Адрес: ул. Ленина, 9 г. Ангарск, 603089</p>
 	    			<p><i class="glyphicon glyphicon-phone-alt"></i>Служба поддержки: 8 (800) 000-00-00</p>
 	    			<p><i class="glyphicon glyphicon-envelope"></i>E-mail: info@myshop.ru</p>
 	    		</div>
@@ -205,54 +179,6 @@ NavBar::begin([
     		</div>
     	</div>
     </div>
-
-
-
-    <?php
-/*
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'О нас', 'url' => ['/site/about']],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-*/
-    ?>
-
-
-        <?//= $content ?>
-
-<!-- <?php /*Modal::begin([
-'header'=>'<h2>Корзина</h2>',
-'id'=>'cart',
-'size'=>'model-lg',
-'footer'=>'<a href="#" class="btn btn-success">Оформить заказ</a>
-<button type="button" class="btn btn-danger clearCart">Очистить карзину</button>'
-]);
-Modal::end();
-*/?> -->
 
 <?php $this->endBody() ?>
 </body>

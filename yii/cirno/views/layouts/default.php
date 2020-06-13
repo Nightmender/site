@@ -31,30 +31,7 @@ DefaultAsset::register($this);
       <div class="container">
         <div class="row header_top">
           <div class="logo col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <a href="/"><img src="images/logo.png"></a>
-          </div>
-          <div class="btn_top_wrap col-lg-8 col-md-8 col-sm-12 col-xs-12">
-            <div class="btn_and_search">
-              <div class="btn_top">
-                <a href="#"><i class="glyphicon glyphicon-map-marker"></i>Обратная связь</a>
-                <a href="#"><i class="glyphicon glyphicon-user"></i>Личный кабинет</a>
-                <a href="#"><i class="glyphicon glyphicon-lock"></i>Войти</a>
-              </div>
-              <div class="search_top">
-              	<form>
-	                <input placeholder="Поиск" type="text">
-	                <button type="submit" name="submit_search">
-	                  <i class="glyphicon glyphicon-search"></i>
-	                </button>
-                </form>
-              </div>
-            </div>
-            <div class="cart_top">
-              <a href="#">
-                <i class="glyphicon glyphicon-shopping-cart"></i>
-                <span>0</span>
-              </a>
-            </div>
+            <a href="/"><img src="images/logo1.jpg"></a>
           </div>
         </div>
       </div>
@@ -74,13 +51,20 @@ NavBar::begin([
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'Каталог', 'url' => ['/page/catalog']],
-            ['label' => 'Новости', 'url' => ['/page/news']],
             ['label' => 'Контакты', 'url' => ['/page/contacts']],
         ],
     ]);
     NavBar::end();
     ?>
-
+    	    			<div class="footer_menu">
+	<?php if(!Yii::$app->user->isGuest): ?>
+               <ul> <a href="<?= yii\helpers\Url::to(['/site/logout'])?>"><?=Yii::$app->user->identity['username']?>(Выход)</a></ul>
+                <?php else: ?>
+               <ul> <a href="<?= yii\helpers\Url::to(['/site/login'])?>"></i>Вход</a>
+                <a href="<?= yii\helpers\Url::to(['/site/signup'])?>"></i>Регистрация</a></ul>
+                <?php endif; ?>
+	
+	    			</div>
 
                   <!-- 
                   <div class="navbar-header">
@@ -154,13 +138,7 @@ NavBar::begin([
       <div class="container">
         <div class="row write_email_and_sseti_wrap">
           <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 write_email">
-            <p>Рассылка</p>
-            <form>
-              <button type="submit">
-                      <i class="glyphicon glyphicon-chevron-right"></i>
-                    </button>
-              <input type="text" placeholder="Введите E-mail">
-            </form>
+           
           </div>
           <div class="col-lg-6 col-md-6 col-sm-5 hidden-xs sseti_wrap">
             <div>
@@ -179,30 +157,17 @@ NavBar::begin([
             <div class="footer_menu">
               <h3>Категории</h3>
              <ul>
-		<li><a href="#">Телевизоры</a></li>
-		<li><a href="#">Комплектующие</a></li>
-		<li><a href="#">Лаптопы</a></li>
-		<li><a href="#">Компьютеры</a></li>
-		<li><a href="#">Электроника</a></li>
+		<li><a href="<?= yii\helpers\Url::to(['/page/listproduct', 'id' => 1])?>">Телевизоры</a></li>
+		<li><a href="<?= yii\helpers\Url::to(['/page/listproduct', 'id' => 2])?>">Комплектующие</a></li>
 		</ul>
             </div>
-            <div class="footer_menu">
-              <h3>Информация</h3>
-              <ul>
-                <li><a href="#">Доставка</a></li>
-                <li><a href="#">Оплата</a></li>
-                <li><a href="#">О компании</a></li>
-                <li><a href="#">Скидки</a></li>
-                <li><a href="#">Карта сайта</a></li>
-              </ul>
-            </div>
+
             <div class="footer_menu">
               <h3>Учетная запись</h3>
               <ul>
-                <li><a href="#">Войти</a></li>
-                <li><a href="#">Зарегистрироваться</a></li>
-                <li><a href="#">Мои заказы</a></li>
-                <li><a href="#">Список желаний</a></li>
+                <li><a href="<?= yii\helpers\Url::to(['/site/login'])?>">Войти</a></li>
+                <li><a href="<?= yii\helpers\Url::to(['/site/signup'])?>">Зарегистрироваться</a></li>
+<li><a href="<?= yii\helpers\Url::to(['/admin/products'])?>">Админка</a></li>
               </ul>
             </div>
           </div>
