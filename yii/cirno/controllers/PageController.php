@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\Categories;
+use app\models\Products;
+use yii\web\NotAcceptableHttpException;
 
 /*Контроллер для сайта*/
 class PageController extends Controller
@@ -25,7 +27,11 @@ class PageController extends Controller
             $categories = Categories::find()->where(['id' => $_GET['id']])->asArray()->one();
 
             if(count($categories) > 0)
-                return $this->render('listproducts', compact('categories'));
+		{
+		$products_array = Products::find()->where(['category' =>$_GET['id']])->asArray()->all();
+                return $this->render('listproducts', compact('categories', 'products_array'));
+		}
+
         }
         return $this->redirect(['page/catalog']);
     }
@@ -40,15 +46,6 @@ class PageController extends Controller
     }
 
 /*
-новости
-*/
-
-    public function actionNews()
-    {
-        return $this->render('news');
-    }
-
-/*
 контакты
 */
 
@@ -58,11 +55,18 @@ class PageController extends Controller
     }
 
 /*
-login
+BlackJeck
 */
 
-    public function actionLogin()
+    public function actionKart()
     {
-        return $this->render('login');
+        $this->layout = "product";
+
+        if(isset($_GET['id']) && !empty($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)){
+            $id = $_GET['id'];
+        }
+        $product_array = Products::find()->where(['id' => $id])->asArray()->one();
+
+        return $this->render('kart', compact('product_array', 'id'));
     }
 }

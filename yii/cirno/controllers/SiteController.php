@@ -9,8 +9,12 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\SignupForm;
+use app\models\User;
+use app\models\index;
+use app\models\Products;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * {@inheritdoc}
@@ -32,7 +36,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -62,14 +66,28 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'main';
-        return $this->render('index');
+		$products_array = Products::find()->asArray()->all();
+                return $this->render('index', compact('categories', 'products_array'));
+		}
+
+    public function actionSignup(){
+                if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $this->setMeta('Регистрация');
+        $model = new SignupForm();
+        if($model->load(\Yii::$app->request->post()) && $model->validate()){
+             $user = new User();
+             $user->username = $model->username;
+             $user->password = \Yii::$app->security->generatePasswordHash($model->password);
+             if($user->save()){
+                 \Yii::$app->user->login($user);
+                 return $this->goHome();
+             }
+        }
+        return $this->render('signup', compact('model'));
     }
 
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
